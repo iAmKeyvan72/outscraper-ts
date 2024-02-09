@@ -3,7 +3,7 @@ import createClient from 'openapi-fetch';
 import { paths, components, webhooks } from './schema';
 import { Enrichments, Language, Region } from './types';
 
-const apiKey = 'ODZkMzFmZjY2MmZhNGMzNTgyOGEzOGI1ODViMDY0OTh8ODYzNzhhMjM5ZA';
+const apiKey = "api_key";
 
 const { GET } = createClient<paths>({
   baseUrl: 'https://api.app.outscraper.com',
