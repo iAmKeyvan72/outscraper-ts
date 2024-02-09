@@ -1,0 +1,22 @@
+{
+  "name": "outscraper-google-places",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generate": "openapi --input ./api-docs-data.json --output ./generated",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "openapi-fetch": "^0.8.2",
+    "outscraper": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.16",
+    "openapi-typescript": "^6.7.4",
+    "typescript": "^5.3.3"
+  }
+}
