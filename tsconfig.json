@@ -12,12 +12,9 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@config/*": ["src/config/*"],
-      "@routes/*": ["src/routes/*"],
-      "@features/*": ["src/features/*"],
-      "@middlewares/*": ["src/middlewares/*"]
+      "@config/*": ["src/config/*"]
     }
   },
-  "include": ["src/**/*.ts", "server.ts", "global-types.d.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }

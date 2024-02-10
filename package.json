@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "generate": "openapi --input ./api-docs-data.json --output ./generated",
-    "start": "NODE_ENV=production dotenv -e .env.production -- node -r tsconfig-paths/register -r ts-node dist/server.js",
+    "start": "NODE_ENV=production dotenv -e .env.production -- node -r tsconfig-paths/register -r ts-node dist/index.js",
     "build": "rimraf dist && npx tsc --project tsconfig.json && npx tscpaths -p tsconfig.json -s . -o ./dist",
-    "dev": "NODE_ENV=development dotenv -e .env.development -- ts-node-dev -r tsconfig-paths/register server.ts",
+    "dev": "NODE_ENV=development dotenv -e .env.development -- ts-node-dev -r tsconfig-paths/register src/index.ts",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "test": "echo \"Error: no test specified\" && exit 1"

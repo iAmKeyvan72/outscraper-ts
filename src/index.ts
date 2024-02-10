@@ -1,5 +1,4 @@
 import { config } from 'dotenv';
-import fs from 'fs';
 import createClient from 'openapi-fetch';
 
 import { environment } from './config/env';
@@ -19,12 +18,12 @@ const searchTopAttractions = async (
   query: string,
   region: Region,
   webhook: string,
-  limit: number = 2,
+  limit: number = 50,
   enrichment: Enrichments[] = [],
   language: Language = 'en'
 ) => {
   try {
-    const { data, response } = await GET('/maps/search-v3', {
+    const { data } = await GET('/maps/search-v3', {
       params: {
         query: {
           async: true,
@@ -32,6 +31,7 @@ const searchTopAttractions = async (
           enrichment,
           language,
           limit,
+
           query,
           region,
           webhook,
@@ -39,30 +39,19 @@ const searchTopAttractions = async (
       },
     });
 
-    console.log(data);
-    console.log(response);
-
-    fs.writeFileSync(
-      'top-attractions-data.json',
-      JSON.stringify(data, null, 2)
-    );
-    fs.writeFileSync(
-      'top-attractions-response.json',
-      JSON.stringify(response, null, 2)
-    );
-
     return data;
   } catch (error) {
     console.error(error);
-    fs.writeFileSync(
-      'top-attractions-error.json',
-      JSON.stringify(error, null, 2)
-    );
   }
 };
 
 searchTopAttractions(
-  'top tourist attractions with rating +4.5 and more than 1000 reviewers in amsterdam',
-  'NL',
-  'https://webhook.site/cba8d459-44a0-44da-8592-ff5b91b80a29'
+  // '0x47c609eec1bb16e5:0xd54373ae6a408585',
+  // '0x47c609e2c5b47ccf:0x6cd478550520ca35',
+  'tourist attractions, rating +4.5 and +1000 reviewers in paris',
+  // 'ChIJ-4hV9B0JxkcRlWODdZx6b9A',
+  'FR',
+  // 'https://dev.intripi.com/v1/places/webhook',
+  'https://ab1b-85-145-251-54.ngrok-free.app/v1/places/webhook',
+  5
 );
