@@ -8,9 +8,9 @@ import { Enrichments, Language, Region } from './types';
 config();
 
 const { GET } = createClient<paths>({
-  baseUrl: 'https://api.app.outscraper.com',
+  baseUrl: environment().PLACES_API_BASE_URL,
   headers: {
-    'X-API-KEY': environment().API_KEY,
+    'X-API-KEY': environment().PLACES_API_KEY,
   },
 });
 
@@ -52,6 +52,6 @@ searchTopAttractions(
   // 'ChIJ-4hV9B0JxkcRlWODdZx6b9A',
   'FR',
   // 'https://dev.intripi.com/v1/places/webhook',
-  'https://ab1b-85-145-251-54.ngrok-free.app/v1/places/webhook',
+  environment().PLACES_API_WEBHOOK,
   5
 );
